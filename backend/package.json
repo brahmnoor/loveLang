@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/brahmnoor/lovelang#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongodb": "^3.5.3",
+    "nconf": "^0.10.0"
   }
 }
