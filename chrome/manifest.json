@@ -1,16 +1,17 @@
 {
   "manifest_version": 2,
-  "name": "nLingual",
-  "description": "learn n (where n > 1) languages easily.",
+  "name": "lovelang",
+  "description": "learn n (where n > 1) langukages easily.",
   "version": "0.1",
-  "permissions": [
-    "storage"
-  ],
-  "content_scripts": [
-    {
+  "content_scripts": [{
+      "run_at": "document_end",
       "matches": ["<all_urls>"],
-      "js": ["packages/jquery.min.js", "packages/bootstrap.min.js", "content/replaceWords.js"],
-      "run_at": "document_end"
-    }
-  ]
+      "js": ["packages/jquery.min.js", "packages/bootstrap.min.js", "content/replaceWords.js"]
+    }],
+  "icons": {"128": "icons/subject.png"},
+  "browser_action": {
+    "default_icon": "icons/subject.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab"]
 }
