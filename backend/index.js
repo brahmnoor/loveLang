@@ -28,3 +28,12 @@ app.get('/', (req, res) => {
     res.send(result);
   })
 });
+app.post('/setlang', (req, res) => {
+db.collection('users').insert(
+  {
+    language: req.body.language,
+  }
+)
+res.send({"success" : "1"}); 
+
+})
