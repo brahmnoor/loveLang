@@ -36,12 +36,13 @@ app.get('/', (req, res) => {
   })
 });
 
-app.post('/setlang', jsonParser, (req, res) => {
-  // db.collection('users').insert(
-  //   {
-  //     language: req.body.language,
-  //   }
-  // )
-  res.send(req.body);
+app.post('/setlang', (req, res) => {
+  db.collection('users').insert(
+     {
+       "language": "en",
+     }
+   )
+  
+  res.send({"success" : '1'});
 
 });
