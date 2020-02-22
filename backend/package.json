@@ -1,0 +1,23 @@
+{
+  "name": "lovelang",
+  "version": "1.0.0",
+  "description": "the backend for API calls for the lovelang plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brahmnoor/lovelang.git"
+  },
+  "author": "Team Coconut",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brahmnoor/lovelang/issues"
+  },
+  "homepage": "https://github.com/brahmnoor/lovelang#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
