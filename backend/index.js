@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
-const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient;
+
+var bodyParser = require('body-parser')
+
+var jsonParser = bodyParser.json()
+
+
+
 
 
 var db
@@ -28,12 +35,13 @@ app.get('/', (req, res) => {
     res.send(result);
   })
 });
-app.post('/setlang', (req, res) => {
-db.collection('users').insert(
-  {
-    language: req.body.language,
-  }
-)
-res.send({"success" : "1"}); 
 
-})
+app.post('/setlang', jsonParser, (req, res) => {
+  // db.collection('users').insert(
+  //   {
+  //     language: req.body.language,
+  //   }
+  // )
+  res.send(req.body);
+
+});
