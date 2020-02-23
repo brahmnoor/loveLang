@@ -75,6 +75,7 @@ returns res, which has replaceWords (a 2D array), language
 */
 app.post('/replace/:id', (req, res) => {
   console.log(req.params.id);
+  console.log(req.body);
   var cursor  = db.collection('users').findOne({_id : new ObjectId(req.params.id)},
     function(err, responseFromDb) {
       if (err)
