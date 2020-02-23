@@ -1,0 +1,16 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<script>
+  $.post("http://localhost:8080/replace/5e51b3fc4234ef0224a895d1",
+{
+    "wordSet" : [["hello", 100]]
+},
+function(data, status) {
+    console.log("Data: " + data + " \n Status : " + status);
+});
+</script>
+</body>
+</html>
