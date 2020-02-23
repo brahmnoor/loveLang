@@ -32,17 +32,25 @@ app.get('/', (req, res) => {
   db.collection('users').find().toArray((err, result) => {
     if (err) return console.log(err)
     // renders index.ejs
-    res.send(result);
+  res.send(result)  
   })
 });
 
 app.post('/setlang', (req, res) => {
   db.collection('users').insert(
      {
+       "_id": "10",
        "language": "en",
+       "wordsMastered": [],
      }
    )
-  
   res.send({"success" : '1'});
+ 
+});
 
+app.post('/replace', (req, res) => {
+  var cursor  = db.collection('users').find({"_id" : '10'});
+  cursor.toArray((err,printer) => {
+  res.send(printer);
+ });
 });
