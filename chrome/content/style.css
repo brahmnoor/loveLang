@@ -117,15 +117,9 @@
   z-index: 20;
   align-self: center;
   margin-left: 0%;
+  height: 30px;
 }
 
-/*.lang_wrap #languageSubmit{
-  position: relative;
-  z-index: 20;
-  font-family: 'IBM Plex Sans';
-  font-size: 24px;
-}
-*/
 
 .lang_wrap .box{
   margin-top: 10%;
@@ -144,7 +138,7 @@
   padding: 1px 2px;
   text-align: center;
   width: 60px;
-  height: 30px;
+  height: 20px;
   text-decoration: bold;
   display: inline-block;
   font-size: 12px;
@@ -160,6 +154,9 @@
   color: black;
   border: 2px solid #ff69b4;
 }
+
+
+
 
 /**
  * Tooltip Styles
