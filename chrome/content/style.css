@@ -112,14 +112,14 @@
   font-weight: 300;
 }
 
-.lang_wrap form{
+.lang_wrap #form{
   position: relative;
   z-index: 20;
   align-self: center;
   margin-left: 0%;
 }
 
-.lang_wrap input{
+.lang_wrap #languageSubmit{
   position: relative;
   z-index: 20;
   font-family: 'IBM Plex Sans';
