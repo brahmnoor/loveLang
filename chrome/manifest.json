@@ -6,7 +6,7 @@
   "content_scripts": [{
       "run_at": "document_end",
       "matches": ["<all_urls>"],
-      "js": ["packages/jquery.min.js", "packages/findAndReplaceDOMText.js", "packages/bootstrap.min.js", "content/replaceWords.js"]
+      "js": ["packages/jquery.min.js", "packages/underscore-min.js", "packages/findAndReplaceDOMText.js", "packages/bootstrap.min.js", "content/replaceWords.js"]
     }],
   "icons": {"128": "icons/subject.png"},
   "browser_action": {
