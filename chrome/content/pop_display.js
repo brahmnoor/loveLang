@@ -15,3 +15,5 @@ function save_options() {
     }, 750);
   });
 }
+
+document.getElementById('languageSubmit').addEventListener('click', save_options);
