@@ -1,6 +1,13 @@
 console.log("LOG: Running replaceWords.js");
 
+//uncomment this to test it!!
 
+// findAndReplaceDOMText(document.body, {
+//   find: 'wiki',
+//   replace: 'COCONUT',
+//   wrap: 'em',
+//   wrapClass: 'Shiny'
+// });
 
 function makeArray(){
   var res = $('body  *').contents().map(function () {
@@ -17,7 +24,9 @@ function makeArray(){
 function replaceWord(initialWord, newWord){
   findAndReplaceDOMText(document.body, {
     find: initialWord,
-    replace: finalWord
+    replace: finalWord,
+    wrap: 'em',
+    wrapClass: 'Shiny'
     }
   );
 }

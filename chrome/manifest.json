@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "lovelang",
-  "description": "learn n (where n > 1) langukages easily.",
+  "description": "learn n (where n > 1) languages easily.",
   "version": "0.1",
   "content_scripts": [{
       "run_at": "document_end",
