@@ -59,7 +59,7 @@ function translateWord(originalWord, languageCode) {
   return finalTranslation;
 }
 
-var arr = makeArray();
+var arr = makeArrayAndReturnObject();
 var translatedArr = [];
 
 for(i=0; i<arr.length; i++){
