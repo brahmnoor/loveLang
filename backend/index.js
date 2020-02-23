@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
+ObjectId = require('mongodb').ObjectID;
+
 var bodyParser = require('body-parser')
 
 var jsonParser = bodyParser.json()
@@ -71,9 +73,14 @@ it must have _id which uniquely identifies the user
 returns res, which has replaceWords (a 2D array), language
 
 */
-app.get('/replace', (req, res) => {
-  var cursor  = db.collection('users').find({"_id" : '10'});
-  cursor.toArray((err,printer) => {
-  res.send(printer);
- });
+app.post('/replace/:id', (req, res) => {
+  console.log(req.params.id);
+  var cursor  = db.collection('users').findOne({_id : new ObjectId(req.params.id)},
+    function(err, responseFromDb) {
+      if (err)
+        console.log(err);
+      console.log(responseFromDb);
+      res.send({"text" : "Hello"});
+    }
+  );
 });
