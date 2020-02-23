@@ -27,6 +27,30 @@ function makeArrayAndReturnObject() {
   // return uniq_out;
 }
 
+var sorted = [
+  ["hey", 10],
+  ["hello", 9],
+  ["hacking", 6]
+];
+
+var wordsMastered = ["hey", "hacking"];
+
+function getNextWord(sorted, wordsMastered){
+    var i = 0;
+    for (j=0;j<wordsMastered.length; j++){
+      if(sorted[i][0] == wordsMastered[j]){
+        i++;
+      }
+      else{
+        return sorted[i][0];
+      }
+    }
+}
+
+
+
+
+
 function replaceWord(initialWord, newWord){
   console.log(initialWord + " " + newWord);
   findAndReplaceDOMText(document.body, {
