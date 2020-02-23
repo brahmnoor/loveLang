@@ -10,9 +10,13 @@
       "js": ["packages/jquery.min.js", "packages/underscore-min.js", "packages/findAndReplaceDOMText.js", "packages/bootstrap.min.js", "content/replaceWords.js"]
     }],
   "icons": {"128": "icons/subject.png"},
+  "background": {
+    "scripts": ["content/background.js"],
+    "persistent": false
+  },
   "browser_action": {
     "default_icon": "icons/subject.png",
     "default_popup": "content/pop_display.html"
   },
-  "permissions": ["activeTab", "storage"]
+  "permissions": ["activeTab", "storage", "https://translation.googleapis.com/*"]
 }
