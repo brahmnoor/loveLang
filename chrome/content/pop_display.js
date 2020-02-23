@@ -16,4 +16,4 @@ function save_options() {
   });
 }
 
-document.getElementById('languageSubmit').addEventListener('click', save_options);
+document.getElementById('name_submit_button').addEventListener('click', save_options);

@@ -119,12 +119,13 @@
   margin-left: 0%;
 }
 
-.lang_wrap #languageSubmit{
+/*.lang_wrap #languageSubmit{
   position: relative;
   z-index: 20;
   font-family: 'IBM Plex Sans';
   font-size: 24px;
 }
+*/
 
 .lang_wrap .box{
   margin-top: 10%;
@@ -136,7 +137,7 @@
 
 }
 
-.lang_wrap .name_submit_button {
+.lang_wrap #name_submit_button {
   background-color: #C71585;
   border: none;
   color: #ffffff;
@@ -153,12 +154,57 @@
   transition-duration: 0.4s;
 }
 
-.lang_wrap .name_submit_button:hover{
+.lang_wrap #name_submit_button:hover{
   box-shadow: 0 12px 16px 0 rgba(255,104,180,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   background-color: #ffffff;
   color: black;
   border: 2px solid #ff69b4;
 }
+
+/* Dropdown Button */
+.lang_wrap .dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.lang_wrap .dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.lang_wrap .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.lang_wrap .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 20;
+}
+
+/* Links inside the dropdown */
+.lang_wrap .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.lang_wrap .dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.lang_wrap .show {display:block;}
 
 /**
  * Tooltip Styles
@@ -167,7 +213,7 @@
 /* Add this attribute to the element that needs a tooltip */
 [data-tooltip] {
   position: relative;
-  z-index: 2;
+  z-index: 21;
   cursor: pointer;
 }
 
