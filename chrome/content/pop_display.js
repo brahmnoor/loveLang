@@ -3,7 +3,7 @@ function save_options() {
   var e = document.getElementById("Languages");
   var selectedLanguage = e.options[e.selectedIndex].value;
 
-  chrome.storage.sync.set({
+  chrome.storage.local.set({
     language: selectedLanguage,
     masteredWords: []
   }, function() {

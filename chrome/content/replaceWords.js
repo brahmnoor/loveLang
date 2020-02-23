@@ -1,15 +1,10 @@
 console.log("LOG: Running replaceWords.js");
 
-//uncomment this to test it!!
+var languageCode;
 
-// findAndReplaceDOMText(document.body, {
-//   find: 'wiki',
-//   replace: 'COCONUT',
-//   wrap: 'em',
-//   wrapClass: 'Shiny'
-// });
-
-// console.log(makeArrayAndReturnObject());
+chrome.storage.local.get(['language'], function(result) {
+          console.log('Value currently is ' + result.key);
+});
 
 function makeArrayAndReturnObject() {
   var res = $('body  *').contents().map(function () {
