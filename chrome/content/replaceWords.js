@@ -37,12 +37,14 @@ function makeArrayAndReturnObject() {
 function replaceWord(initialWord, newWord){
   findAndReplaceDOMText(document.body, {
     find: initialWord,
-    replace: finalWord,
-    wrap: 'em',
-    wrapClass: 'Shiny'
+    replace: initialWord + " " + newWord,
+    wrap: 'span',
+    wrapClass: 'lovelangReplace'
     }
   );
 }
+
+replaceWord("wiki", "how");
 
 function translateWord(originalWord, languageCode) {
   finalTranslation = "";
@@ -60,14 +62,16 @@ function translateWord(originalWord, languageCode) {
 }
 
 var arr = makeArrayAndReturnObject();
+
 var translatedArr = [];
 
-for(i=0; i<arr.length; i++){
-  translatedArr[i] = translateWord(arr[i], "fr"); //how jget lang code?/?????
-}
 
-for(j=0;j<arr.length;j++){
-  (arr[i] + " = " + translatedArr[i]).insertAfter(".table");
-  ("\n").insertAfter(".table");
+// Add CSS to the second element in the replace things
+var toBold = document.getElementsByClassName('lovelangReplace');
 
+for (var i = 0 ; i< toBold.length; ++i) {
+  var temp = toBold[i].innerText;
+  temp = temp.replace(' ', "'>");
+  toBold[i].innerHTML = "<p style='display:inline;' data-tooltip='" + temp + "</p>";
+  console.log("<p data-tooltip='" + temp + "</p>");
 }
