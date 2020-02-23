@@ -58,3 +58,16 @@ function translateWord(originalWord, languageCode) {
   });
   return finalTranslation;
 }
+
+var arr = makeArray();
+var translatedArr = [];
+
+for(i=0; i<arr.length; i++){
+  translatedArr[i] = translateWord(arr[i], "fr"); //how jget lang code?/?????
+}
+
+for(j=0;j<arr.length;j++){
+  (arr[i] + " = " + translatedArr[i]).insertAfter(".table");
+  ("\n").insertAfter(".table");
+
+}
