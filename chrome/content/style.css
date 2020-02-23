@@ -136,15 +136,15 @@
 
 }
 
-.name_submit_button {
-  background-color: #ffffff;
+.lang_wrap .name_submit_button {
+  background-color: #C71585;
   border: none;
-  color: #000000;
+  color: #ffffff;
   padding: 1px 2px;
   text-align: center;
-  width: 240px;
-  height: 10px;
-  text-decoration: none;
+  width: 60px;
+  height: 30px;
+  text-decoration: bold;
   display: inline-block;
   font-size: 12px;
   margin: 2px 1px;
@@ -153,11 +153,11 @@
   transition-duration: 0.4s;
 }
 
-.name_submit_button:hover{
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+.lang_wrap .name_submit_button:hover{
+  box-shadow: 0 12px 16px 0 rgba(255,104,180,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   background-color: #ffffff;
   color: black;
-  border: 2px solid #000000;
+  border: 2px solid #ff69b4;
 }
 
 /**
