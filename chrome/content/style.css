@@ -224,3 +224,9 @@
   filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+#status{
+  font-weight: bold;
+  margin-left: 120px;
+  margin-top: 50px;
+}
