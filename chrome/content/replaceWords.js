@@ -1,24 +1,25 @@
 console.log("LOG: Running replaceWords.js");
 
+
+
 function makeArray(){
   var res = $('body  *').contents().map(function () {
       if (this.nodeType == 3 && this.nodeValue.trim() != "") //check for nodetype==3 which is text and ignore empty text nodes
           return this.nodeValue.trim().split(/\W+/);  //split the nodevalue to get words.
   }).get(); //get the array of words.
-
+  for (i = 0; i < res.length; i++){
+    res[i] = res[i].toLowerCase();
+  }
   let uniq_out = [...new Set(res)]; //deletes duplicate elements
   return uniq_out;
 }
 
-function replaceWord(initialWord, finalWord){
-
-    if (document.readyState === "complete") {
-      $("body").children().each(function () {
-      $(this).html( $(this).html().replace(/initialWord/gi,finalWord) );
-      });
-    } else {
-        setTimeout('checkLoad();', 500)
+function replaceWord(initialWord, newWord){
+  findAndReplaceDOMText(document.body, {
+    find: initialWord,
+    replace: finalWord
     }
+  );
 }
 
 function translateWord(originalWord, languageCode) {
