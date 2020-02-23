@@ -6,12 +6,13 @@
   "content_scripts": [{
       "run_at": "document_end",
       "matches": ["<all_urls>"],
+      "css": ["content/style.css"],
       "js": ["packages/jquery.min.js", "packages/underscore-min.js", "packages/findAndReplaceDOMText.js", "packages/bootstrap.min.js", "content/replaceWords.js"]
     }],
   "icons": {"128": "icons/subject.png"},
   "browser_action": {
     "default_icon": "icons/subject.png",
-    "default_popup": "popup.html"
+    "default_popup": "pop_display.html"
   },
   "permissions": ["activeTab"]
 }

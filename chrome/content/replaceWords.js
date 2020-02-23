@@ -45,6 +45,7 @@ function replaceWord(initialWord, newWord){
 }
 
 function translateWord(originalWord, languageCode) {
+  finalTranslation = "";
   var url = "https://translation.googleapis.com/language/translate/v2";
   //Strings requiring translation
   url += "?q=" + originalWord;
