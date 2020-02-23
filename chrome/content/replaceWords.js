@@ -55,6 +55,7 @@ function translateWord(originalWord, languageCode) {
   //Replace with your API key
   url += "&key=AIzaSyBPsptbtoOIk6GVvZZvtn2P6mbDzHp9ZoE";
   $.get(url, function (data, status) {
+      console.log(data);
       //Results are returned in an array following the order they were passed.
       this.finalTranslation = data.data.translations[0].translatedText;
   });
