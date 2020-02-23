@@ -27,24 +27,13 @@ function makeArrayAndReturnObject() {
   // return uniq_out;
 }
 
-var sorted = [
-  ["hey", 10],
-  ["hello", 9],
-  ["hacking", 6]
-];
-
-var wordsMastered = ["hey", "hacking"];
-
 function getNextWord(sorted, wordsMastered){
-    var i = 0;
-    for (j=0;j<wordsMastered.length; j++){
-      if(sorted[i][0] == wordsMastered[j]){
-        i++;
-      }
-      else{
-        return sorted[i][0];
-      }
-    }
+  var i = 0;
+  while (wordsMastered.includes(sorted[i][0]) || sorted[i][0] == "" ||
+    !(/^[a-zA-Z]+$/.test(sorted[i][0])) ) {
+    i++;
+  }
+  return sorted[i][0];
 }
 
 
@@ -70,6 +59,27 @@ function replaceWord(initialWord, newWord){
     console.log("<p data-tooltip='" + temp + "</p>");
   }
   count++;
+
+  // Add the word to the masteredWords list
+  chrome.storage.sync.get({masteredWords:[]},
+  function(data) {
+     console.log(data.masteredWords);
+     var array = data.masteredWords;
+
+     if (!array.includes(initialWord)) {
+       array.push(initialWord);
+     }
+
+
+
+     //then call the set to update with modified value
+     chrome.storage.sync.set({
+         masteredWords:array
+     }, function() {
+         console.log("added to list with new values");
+     });
+  });
+
 }
 
 function fetchResource(input, init) {
@@ -104,27 +114,50 @@ chrome.storage.local.get('language', async function(result) {
   console.log(languageCode);
 
   // Make the whole program inside this
+  chrome.storage.sync.get({masteredWords:[]},
+  async function(data) {
 
-  var word = ["modify", "structure"];
+    var wordLearnt = data.masteredWords;
 
-  for (i = 0; i < word.length; i++) {
+    console.log(wordLearnt);
 
-    await fetchResource('https://translation.googleapis.com/language/translate/v2?q=' +
-    word[i] + '&target=' + languageCode +
-    '&key=AIzaSyBDLTCqbkRxMAu8zVF-j1zYOPgm3oDtdvo').then(r => r.text()).then(async result => {
+    var wordsOnPage = await makeArrayAndReturnObject();
 
-      var jsonResult = JSON.parse(result);
-      console.log(jsonResult);
-      console.log(jsonResult.data.translations[0].translatedText);
+    console.log(wordsOnPage);
 
-      var stringOfTranslation = jsonResult.data.translations[0].translatedText;
+    var word3 = await getNextWord(wordsOnPage, wordLearnt);
 
-      console.log(stringOfTranslation);
+    console.log(word3);
 
-      await replaceWord(word[i], stringOfTranslation);
+    wordLearnt.push(await getNextWord(wordsOnPage, wordLearnt));
 
-    });
-  }
+    console.log(wordLearnt);
+
+    var word = wordLearnt;//
+
+    console.log(word);
+
+    for (i = 0; i < word.length; i++) {
+
+      console.log(word[i]);
+
+      await fetchResource('https://translation.googleapis.com/language/translate/v2?q=' +
+      word[i] + '&target=' + languageCode +
+      '&key=AIzaSyBDLTCqbkRxMAu8zVF-j1zYOPgm3oDtdvo').then(r => r.text()).then(async result => {
+
+        var jsonResult = JSON.parse(result);
+        console.log(jsonResult);
+        console.log(jsonResult.data.translations[0].translatedText);
+
+        var stringOfTranslation = jsonResult.data.translations[0].translatedText;
+
+        console.log(stringOfTranslation);
+
+        await replaceWord(word[i], stringOfTranslation);
+
+      });
+    }
+  });
 
 
 });
