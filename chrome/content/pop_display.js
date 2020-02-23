@@ -14,6 +14,7 @@ function save_options() {
       status.textContent = '';
     }, 750);
   });
+
 }
 
 document.getElementById('name_submit_button').addEventListener('click', save_options);

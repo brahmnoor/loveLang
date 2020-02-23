@@ -1,10 +1,12 @@
 console.log("LOG: Running replaceWords.js");
 
-var languageCode;
+var languageCode = "";
 
-chrome.storage.local.get(['language'], function(result) {
-          console.log('Value currently is ' + result.key);
-});
+// chrome.storage.local.get(null, function(items) {
+//    for (key in items) {
+//        console.log(key);
+//    }
+// });
 
 function makeArrayAndReturnObject() {
   var res = $('body  *').contents().map(function () {
@@ -41,20 +43,47 @@ function replaceWord(initialWord, newWord){
 
 replaceWord("wiki", "how");
 
-function translateWord(originalWord, languageCode) {
-  finalTranslation = "";
-  var url = "https://translation.googleapis.com/language/translate/v2";
-  //Strings requiring translation
-  url += "?q=" + originalWord;
-  url += "&target=" + languageCode;
-  //Replace with your API key
-  url += "&key=AIzaSyBPsptbtoOIk6GVvZZvtn2P6mbDzHp9ZoE";
-  $.get(url, function (data, status) {
-      console.log(data);
-      //Results are returned in an array following the order they were passed.
-      this.finalTranslation = data.data.translations[0].translatedText;
-  });
-  return finalTranslation;
+// function translateWord(originalWord, langCode) {
+//   finalTranslation = "";
+//   var url = "https://translation.googleapis.com/language/translate/v2";
+//   //Strings requiring translation
+//   url += "?q=" + originalWord;
+//   url += "&target=" + langCode;
+//   //Replace with your API key
+//   url += "&key=AIzaSyBDLTCqbkRxMAu8zVF-j1zYOPgm3oDtdvo";
+//   console.log(url);
+//   $.get(url, function (data, status) {
+//       console.log(data);
+//       console.log(status);
+//       //Results are returned in an array following the order they were passed.
+//       this.finalTranslation = data.data.translations[0].translatedText;
+//   });
+//   return finalTranslation;
+// }
+
+// function translateWord(originalWord, langCode) {
+//   var url = "https://translation.googleapis.com/language/translate/v2";
+//   //Strings requiring translation
+//   url += "?q=" + originalWord;
+//   //Target language
+//   url += "&target=" + langCode;
+//   //Replace with your API key
+//   url += "&key=AIzaSyBDLTCqbkRxMAu8zVF-j1zYOPgm3oDtdvo";
+//   $.get(url, function(data, status) {
+//       //Results are returned in an array following the order they were passed.
+//       console.log(data);
+//       console.log(status);
+//
+//   });
+// }
+
+function translateWord(originalWord, langCode) {
+  $.get("https://translation.googleapis.com/language/translate/v2",
+  {q: originalWord, target : langCode, key : "AIzaSyBDLTCqbkRxMAu8zVF-j1zYOPgm3oDtdvo"} ,
+  function(data){
+            // Display the returned data in browser
+            console.log(data);
+        });
 }
 
 var arr = makeArrayAndReturnObject();
@@ -71,3 +100,10 @@ for (var i = 0 ; i< toBold.length; ++i) {
   toBold[i].innerHTML = "<p style='display:inline;' data-tooltip='" + temp + "</p>";
   console.log("<p data-tooltip='" + temp + "</p>");
 }
+
+chrome.storage.local.get('language', function(result) {
+  languageCode = result.language;
+  console.log(languageCode);
+  // Make the whole program inside this
+  translateWord("hello", languageCode);
+});
